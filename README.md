@@ -14,9 +14,12 @@ Units must be passed to determine the formatting. Pass 'imp' for imperial and 'm
 
 How to use it within an Angular typescript project:
 ```
+import { Component } from "@angular/core";
 import { LocationUtility } from 'location-utilities';
 
-@Component({})
+@Component({
+   templateURL: 'mypage.html'
+})
 
 export class MyPage{
 
