@@ -13,9 +13,15 @@ This module is still in development, because I am adding coordinate calculation,
 Units must be passed to determine the formatting. Pass 'imp' for imperial and 'm' for metric
 
 How to use it within an Angular typescript project:
-
+```
 import { LocationUtility } from 'location-utilities';
-.....
+
+@Component({})
+
+export class MyPage{
+
+constructor(){}
+
 // Example methods included with the module
 getGST(NMEAGSTSentence: string){
 // Parts of the GST sentence are used to calculate horizontal accuracy
@@ -61,4 +67,5 @@ formatDDLong(longitude: number){
   let coordinatesinDMS = LocationUtility.DDLongToDMS(longitude);
   return coordinatesinDMS;
 }
-
+}
+```
