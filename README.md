@@ -10,7 +10,7 @@ The module can also calculate horizontal accuracy which is used for the accuracy
 The module also includes interfaces for every single standard NMEA sentence. 
 
 This module is still in development, because I am adding coordinate calculation, more specific NMEA parsing functions, and the rest of the NMEA interfaces.
-Units must be passed to determine the formatting. Pass 'imp' for imperial and 'm' for metric
+Units must be passed to some methods to determine the formatting. Pass 'imp' for imperial and 'm' for metric
 
 How to use it within an Angular typescript project:
 ```
