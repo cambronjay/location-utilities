@@ -13,4 +13,4 @@ if (! readme) {
 delete packageJson.devDependencies;
 
 fs.writeFile('./dist/package.json', JSON.stringify(packageJson, null, 2));
-fs.writeFile('./dist/README.md', readme);
+fs.writeFileSync('./dist/README.md', fs.readFileSync(readme));
