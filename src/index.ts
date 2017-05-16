@@ -190,6 +190,27 @@ export module LocationUtility {
             return "Invalid NMEA sentence."
         }
     }
+    // Parses DTM string and returns DTM object
+    export function parseDTM(sentence: string, unit: string): DTM {
+        if (sentence !== undefined && sentence !== null) {
+            var nmea = sentence.toString();
+            var nmeaParsed = nmea.split(",");
+            var parsedSentence: DTM;
+            var lastItem = (nmeaParsed[8] !== null && nmeaParsed[8] !== undefined && nmeaParsed[8] !== '') ? nmeaParsed[8].split('*') : '';
+            parsedSentence = {
+                type: (nmeaParsed[0] !== null && nmeaParsed[0] !== undefined && nmeaParsed[0] !== '') ? nmeaParsed[0] : '',
+                datum: (nmeaParsed[1] !== null && nmeaParsed[1] !== undefined && nmeaParsed[1] !== '') ? nmeaParsed[1] : '',
+                subDatum: (nmeaParsed[2] !== null && nmeaParsed[2] !== undefined && nmeaParsed[2] !== '') ? nmeaParsed[2] : '',
+                latitudeOffset: (nmeaParsed[3] !== null && nmeaParsed[3] !== undefined && nmeaParsed[3] !== '') ? parseFloat(nmeaParsed[3]) : 0,
+                latitudeDirection: (nmeaParsed[4] !== null && nmeaParsed[4] !== undefined && nmeaParsed[4] !== '') ? nmeaParsed[4] : '',
+                longitudeOffset: (nmeaParsed[5] !== null && nmeaParsed[5] !== undefined && nmeaParsed[5] !== '') ? parseFloat(nmeaParsed[5]) : 0,
+                longitudeDirection: (nmeaParsed[6] !== null && nmeaParsed[6] !== undefined && nmeaParsed[6] !== '') ? nmeaParsed[6] : '',
+                altitudeOffset: (nmeaParsed[7] !== null && nmeaParsed[7] !== undefined && nmeaParsed[7] !== '') ? parseFloat(nmeaParsed[7]) : 0,
+                refDatum: (nmeaParsed[8] !== null && nmeaParsed[8] !== undefined && nmeaParsed[8] !== '') ? lastItem[0] : ''
+            }
+            return parsedSentence;
+        }
+    }
     // Parses GST string and returns GST object
     export function parseGST(sentence: string, unit: string): GST {
         if (sentence !== undefined && sentence !== null) {
@@ -349,9 +370,38 @@ export module LocationUtility {
         result += valSec + '" ';
         return result;
     }
+    // Converts DMS to DD
+    export function DMSToDD(dms: string): number {
+        var dmsAsString = dms.toString();
+        var dmsString = dmsAsString.split(" ");
+        // Check if formatting latitude or longitude
+        if(dmsAsString[3] === 'N' || dmsAsString[3] === 'S'){
+            calculateDD(dmsString);
+        } else {
+
+        }
+    }
+    // Calculates decimal degrees from degrees minutes seconds
+    export function calculateDD(dmsArray: string[]): number {
+        var valDeg, valMin, valSec, result;
+        (50/3600) + (31/60) + 138
+        valDeg = dmsArray[0];
+    }    
+    // Interfaces
     export interface DD {
         latitude: number;
         longitude: number;
+    }
+    export interface DTM {
+        type: string;
+        datum: string;
+        subDatum: string;
+        latitudeOffset: number;
+        latitudeDirection: string;
+        longitudeOffset: number;
+        longitudeDirection: string;
+        altitudeOffset: number;
+        refDatum: string;
     }
     export interface GST {
         type: string;

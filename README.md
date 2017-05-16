@@ -1,74 +1,79 @@
 # location-utilities
-Coordinate formatting and location calculation utilities
+Coordinate formatting, location calculation utilities, and NMEA parser.
 
-This module fills the gap when it comes to understanding GPS units and reading NMEA sentences. Also, this module formats sentences from NMEA into a 
-readable format. It can format latitude and longitude in many ways:
-- ddmm.mmmmm or degrees minutes to DMS or degrees minutes seconds. 
-- decimal degrees or DD to degrees minutes seconds or DMS.
-- DMS or degrees minutes seconds to DD or decimal degrees. 
-The module can also calculate horizontal accuracy which is used for the accuracy reading on most GPS units
-The module also includes interfaces for every single standard NMEA sentence. 
+This module provides many useful functions:
+- Formats ddmm.mmmmm or degrees minutes as DD or decimal degrees. 
+- Formats decimal degrees or DD as degrees minutes seconds or DMS.
+- Formats DMS or degrees minutes seconds as DD or decimal degrees. 
+- Calculates horizontal accuracy which is the accuracy output on most GPS devices.
+- Parses all standard sentences of the NMEA protocol which includes $GPDTM, $GPGBS, $GPGGA, $GPGLL, $GPGLQ, $GPGNQ, $GPGNS, $GPGPQ, $GPGRS, $GPGSA, 
+  $GPGST, $GPGSV, $GPRMC, $GPVTG, and $GPZDA. 
+- Supports metric and imperial units.
 
-This module is still in development, because I am adding coordinate calculation, more specific NMEA parsing functions, and the rest of the NMEA interfaces.
-Units must be passed to some methods to determine the formatting. Pass 'imp' for imperial and 'm' for metric
-
-How to use it within an Angular typescript project:
+## Installation
+```sh
+npm install location-utilities --save
 ```
-import { Component } from "@angular/core";
+
+## Node usage
+```js
+var LocationUtility =  require('path-to-module-index-file/index.js');
+```
+## Angular Typescript usage
+``` ts
 import { LocationUtility } from 'location-utilities';
+```
 
-@Component({
-   templateURL: 'mypage.html'
-})
+## Current module functions
 
-export class MyPage{
-
-constructor(){}
-
-// Example methods included with the module
-getGST(NMEAGSTSentence: string){
-// Parts of the GST sentence are used to calculate horizontal accuracy
-// A parse function exists for every single standard NMEA sentence
-   let parsedGST = LocationUtility.parseGST(NMEAGSTSentence, 'imp');
-   let accuracy = LocationUtility.horizontalAccuracy(parsedGST.stdLatitudeError, parsedGST.stdLongitudeError, 'imp');
-   return accuracy; 
-}
-
-parseNMEA(NMEASentence: string){
-// Pass any NMEA sentence to this function then typecast it as the interface you need or get the parsed NMEA sentence
-   let parsedSentence = LocationUtility.parseNMEA(NMEASentence, 'imp') as LocationUtility.GGA;
-   let latitude = parsedSentence.latitude;
-   return latitude; 
-}
-
-formatDM(latitudeDirection: string, latitude: string, longitudeDirection: string, longitude: string) {
-// Pass Degrees minutes and get back an object with the decimal degrees
-  let coordinatesDecimalDegrees = LocationUtility.DMToDD(latitudeDirection, latitude, longitudeDirection, longitude);
-  return coordinatesDecimalDegrees;
-}
-
-formatDMLat(latitudeDirection: string, latitude: string){
-// Formats latitude from degrees minutes to decimal degrees
-  let coordinatesDecimalDegrees = LocationUtility.DMLatToDD(latitudeDirection, latitude);
-  return coordinatesDecimalDegrees;
-}
-
-formatDMLong(longitudeDirection: string, longitude: string){
-// Formats longitude from degrees minutes to decimal degrees
-  let coordinatesDecimalDegrees = LocationUtility.DMLongToDD(longitudeDirection, longitude);
-  return coordinatesDecimalDegrees;
-}
-
-formatDDLat(latitude: number){
-// Formats latitude from decimal degrees to degrees minutes seconds
-  let coordinatesinDMS = LocationUtility.DDLatToDMS(latitude);
-  return coordinatesinDMS;
-}
-
-formatDDLong(longitude: number){
-// Formats longitude from decimal degrees to degrees minutes seconds
-  let coordinatesinDMS = LocationUtility.DDLongToDMS(longitude);
-  return coordinatesinDMS;
-}
-}
+#### Returned Unit of Measure
+```ts
+// Pass 'imp' for imperial and 'm' for metric
+```
+#### Parse NMEA sentence
+```ts
+// Returns an object with the parsed data
+LocationUtility.parseNMEA(NMEASentence, 'imp');
+```
+##### Parse NMEA sentence with an interface
+```ts
+// Returns an object with the parsed data and casts it to a NMEA sentence interface
+LocationUtility.parseNMEA(NMEASentence, 'imp') as LocationUtility.GGA;
+```
+#### Parse specific NMEA sentence
+```ts
+// Supports all standard NMEA sentences as parse functions
+// Replace GGA with the sentence you are trying to parse
+LocationUtility.parseGGA(NMEASentence, 'imp');
+```
+#### Calculate horizontal accuracy
+```ts
+// Returns horizontal accuracy as a number
+  let parsedGST = LocationUtility.parseGST(NMEAGSTSentence, 'imp');
+  LocationUtility.horizontalAccuracy(parsedGST.stdLatitudeError, parsedGST.stdLongitudeError, 'imp');
+```
+#### Format degrees minutes as decimal degrees 
+```ts
+// Returns an object containing decimal degrees for both latitude and longitude
+  LocationUtility.DMToDD(latitudeDirection, latitude, longitudeDirection, longitude);
+```
+#### Format latitude degrees minutes as decimal degrees
+```ts
+// Returns decimal degrees for latitude as a number
+  LocationUtility.DMLatToDD(latitudeDirection, latitude);
+```
+#### Format longitude degrees minutes as decimal degrees
+```ts
+// Returns decimal degrees for longitude as a number
+  LocationUtility.DMLongToDD(longitudeDirection, longitude);
+```
+#### Format latitude decimal degrees as degrees minutes seconds
+```ts
+// Returns degrees minutes seconds for latitude as a string
+  LocationUtility.DDLatToDMS(latitude);
+```
+#### Format longitude decimal degrees as degrees minutes seconds
+```ts
+// Returns degrees minutes seconds for longitude as a string
+  LocationUtility.DDLongToDMS(longitude);
 ```

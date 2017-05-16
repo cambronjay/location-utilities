@@ -1,7 +1,7 @@
 {
   "name": "location-utilities",
-  "version": "0.2.8",
-  "description": "Coordinate formatting and location calculation utilities",
+  "version": "0.3.3",
+  "description": "Coordinate formatting, location calculation utilities, and NMEA parser.",
   "main": "es2015/index.js",
   "module": "es2015/index.js",
   "typings": "es2015/index.d.ts",
@@ -12,7 +12,8 @@
     "build-es2015": "ngc -p ./tsconfig-es2015.json",
     "preparePackage": "node ./scripts/copy-package",
     "build": "npm run clean && npm run build-cjs && npm run build-es2015 && npm run preparePackage && npm run clean-generated",
-    "publishPackage": "npm run build && cd dist && npm publish"
+    "publishPackage": "npm run build && cd dist && npm publish",
+    "publishIt": "cd dist && npm publish"
   },
   "repository": {
     "type": "git",
@@ -31,7 +32,7 @@
     "ionic",
     "utilities",
     "nmea",
-    "accuracy", 
+    "accuracy",
     "ionic",
     "angular"
   ],
@@ -59,7 +60,8 @@
     "semver": "5.3.0",
     "tslint": "5.2.0",
     "typescript": "2.3.2",
-    "rxjs": "5.1.1"
+    "rxjs": "5.1.1",
+    "copy": "0.3.0"
   },
   "peerDependencies": {}
 }
