@@ -1,6 +1,6 @@
 {
   "name": "location-utilities",
-  "version": "0.2.7",
+  "version": "0.2.8",
   "description": "Coordinate formatting and location calculation utilities",
   "main": "es2015/index.js",
   "module": "es2015/index.js",
