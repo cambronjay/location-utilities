@@ -31,7 +31,9 @@
     "ionic",
     "utilities",
     "nmea",
-    "accuracy"
+    "accuracy", 
+    "ionic",
+    "angular"
   ],
   "author": {
     "name": "Jay Cambron",
@@ -45,6 +47,9 @@
   "homepage": "https://github.com/cambronjay/location-utilities#readme",
   "dependencies": {},
   "devDependencies": {
+    "@angular/core": "4.1.0",
+    "@angular/compiler": "4.1.0",
+    "@angular/compiler-cli": "4.1.0",
     "@types/node": "7.0.18",
     "canonical-path": "0.0.2",
     "cpr": "2.0.2",
@@ -54,7 +59,7 @@
     "semver": "5.3.0",
     "tslint": "5.2.0",
     "typescript": "2.3.2",
-    "zone.js": "0.8.10"
+    "rxjs": "5.1.1"
   },
   "peerDependencies": {}
 }
