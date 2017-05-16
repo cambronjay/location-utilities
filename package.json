@@ -1,0 +1,65 @@
+{
+  "name": "location-utilities",
+  "version": "0.2.5",
+  "description": "Coordinate formatting and location calculation utilities",
+  "main": "es2015/index.js",
+  "module": "es2015/index.js",
+  "typings": "es2015/index.d.ts",
+  "scripts": {
+    "clean": "npm rm -rf dist",
+    "clean-generated": "npm rm -rf src/*.ngfactory.ts && npm rm -rf src/*.ngsummary.json",
+    "build-cjs": "ngc -p .",
+    "build-es2015": "ngc -p ./tsconfig-es2015.json",
+    "preparePackage": "node ./scripts/copy-package",
+    "build": "npm run clean && npm run build-cjs && npm run build-es2015 && npm run preparePackage && npm run clean-generated",
+    "publishPackage": "npm run build && cd dist && npm publish"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cambronjay/location-utilities.git"
+  },
+  "optionalDependencies": {},
+  "directories": {},
+  "keywords": [
+    "gps",
+    "degrees",
+    "dms",
+    "latitude",
+    "longitude",
+    "location",
+    "typescript",
+    "ionic",
+    "utilities",
+    "nmea",
+    "accuracy"
+  ],
+  "author": {
+    "name": "Jay Cambron",
+    "email": "cambronjay@gmail.com",
+    "url": "http://jaycambron.com"
+  },
+  "license": "AGPL-3.0",
+  "bugs": {
+    "url": "https://github.com/cambronjay/location-utilities/issues"
+  },
+  "homepage": "https://github.com/cambronjay/location-utilities#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@angular/compiler": "4.1.0",
+    "@angular/compiler-cli": "4.1.0",
+    "@angular/core": "4.1.0",
+    "@types/node": "7.0.18",
+    "canonical-path": "0.0.2",
+    "cpr": "2.0.2",
+    "dgeni": "0.4.7",
+    "dgeni-packages": "0.19.0",
+    "rimraf": "2.6.1",
+    "semver": "5.3.0",
+    "tslint": "5.2.0",
+    "typescript": "2.3.2",
+    "zone.js": "0.8.10"
+  },
+  "peerDependencies": {
+    "@angular/core": "*"
+  }
+}
