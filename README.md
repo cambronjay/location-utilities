@@ -19,7 +19,7 @@ https://www.paypal.me/buymebourbon
 ```sh
 npm install location-utilities --save
 ```
-Have fun and buy me a bourbon! https://www.paypal.me/buymebourbon
+
 ## Node usage
 ```js
 var LocationUtility =  require('path-to-module-index-file/index.js');
