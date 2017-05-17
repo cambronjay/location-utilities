@@ -11,11 +11,15 @@ This module provides many useful functions:
   $GPGST, $GPGSV, $GPRMC, $GPVTG, and $GPZDA. 
 - Supports metric and imperial units.
 
+## Love my modules?
+- Support my continued creation of important modules. Buy me a glass of bourbon!
+https://www.paypal.me/buymebourbon
+
 ## Installation
 ```sh
 npm install location-utilities --save
 ```
-
+Have fun and buy me a bourbon! https://www.paypal.me/buymebourbon
 ## Node usage
 ```js
 var LocationUtility =  require('path-to-module-index-file/index.js');
@@ -35,6 +39,7 @@ import { LocationUtility } from 'location-utilities';
 ```ts
 // Returns an object with the parsed data
 // Unit is either m for metric or imp for imperial
+// Measurements are returned in meters or feet
 LocationUtility.parseNMEA(NMEASentence, unit);
 ```
 ##### Parse NMEA sentence with an interface
@@ -46,11 +51,14 @@ LocationUtility.parseNMEA(NMEASentence, 'imp') as LocationUtility.GGA;
 ```ts
 // Supports all standard NMEA sentences as parse functions
 // Replace GGA with the name of the sentence you are trying to parse
+// Measurements are returned in meters or feet
 LocationUtility.parseGGA(NMEASentence, 'imp');
 ```
 #### Calculate horizontal accuracy
 ```ts
 // Returns horizontal accuracy as a number
+// Unit is either m for metric or imp for imperial
+// Measurements are returned in meters or feet
   let parsedGST = LocationUtility.parseGST(NMEAGSTSentence, 'imp');
   LocationUtility.horizontalAccuracy(parsedGST.stdLatitudeError, parsedGST.stdLongitudeError, 'imp');
 ```
@@ -95,5 +103,6 @@ LocationUtility.parseGGA(NMEASentence, 'imp');
 ```ts
 // Returns the distance in the desired unit
 // Unit is either m for metric or imp for imperial
+// Measurements are returned in kilometers or miles
   LocationUtility.calculateDistance(point1Latitude, point1Longitude, point2Latitude, point2Longitude, unit);
 ```
