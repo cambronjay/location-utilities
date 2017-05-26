@@ -12,7 +12,7 @@
     "build-es2015": "ngc -p ./tsconfig-es2015.json",
     "preparePackage": "node ./scripts/copy-package",
     "build": "npm run clean && npm run build-cjs && npm run build-es2015 && npm run preparePackage && npm run clean-generated",
-    "publishPackage": "npm run build && cd dist && npm publish",
+    "publishPackage": "npm run build && cd dist && npm publish"
   },
   "repository": {
     "type": "git",
