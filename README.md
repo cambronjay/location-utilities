@@ -24,7 +24,7 @@ npm install location-utilities --save
 ```js
 var LocationUtility =  require('path-to-module-index-file/index.js');
 ```
-## Angular Typescript usage
+## Angular usage
 ``` ts
 import { LocationUtility } from 'location-utilities';
 ```
