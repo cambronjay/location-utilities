@@ -73,13 +73,11 @@ LocationUtility.parseGGA(NMEASentence, 'imp');
 ```ts
 // Returns decimal degrees for latitude as a number
 // Latitude direction is either N for North or S for South
-// Longitude direction is either E for East or W for west
   LocationUtility.DMLatToDD(latitudeDirection, latitude);
 ```
 #### Format longitude degrees minutes as decimal degrees
 ```ts
 // Returns decimal degrees for longitude as a number
-// Latitude direction is either N for North or S for South
 // Longitude direction is either E for East or W for west
   LocationUtility.DMLongToDD(longitudeDirection, longitude);
 ```
@@ -103,6 +101,7 @@ LocationUtility.parseGGA(NMEASentence, 'imp');
 ```ts
 // Returns the distance in the desired unit
 // Unit is either m for metric or imp for imperial
+// Longitude points and latitude points must be in decimal degrees
 // Measurements are returned in kilometers or miles
   LocationUtility.calculateDistance(point1Latitude, point1Longitude, point2Latitude, point2Longitude, unit);
 ```

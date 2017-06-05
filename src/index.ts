@@ -618,6 +618,7 @@ export module LocationUtility {
         }
         return result;
     }
+    // Calculates distance between two points
     export function calculateDistance(point1Latitude: number, point1Longitude: number, point2Latitude: number, point2Longitude: number, unit: string): number {
         var radlat1 = Math.PI * point1Latitude / 180;
         var radlat2 = Math.PI * point2Latitude / 180;
