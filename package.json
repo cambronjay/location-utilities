@@ -1,6 +1,6 @@
 {
   "name": "location-utilities",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Coordinate formatting, location calculation utilities, and NMEA sentence parser.",
   "main": "es2015/index.js",
   "module": "es2015/index.js",
