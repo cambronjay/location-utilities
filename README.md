@@ -40,6 +40,7 @@ import { LocationUtility } from 'location-utilities';
 // Returns an object with the parsed data
 // Unit is either m for metric or imp for imperial
 // Measurements are returned in meters or feet
+// Longitude and latitude are returned in decimal degrees
 LocationUtility.parseNMEA(NMEASentence, unit);
 ```
 ##### Parse NMEA sentence with an interface
