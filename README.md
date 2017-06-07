@@ -52,6 +52,7 @@ LocationUtility.parseNMEA(NMEASentence, 'imp') as LocationUtility.GGA;
 // Supports all standard NMEA sentences as parse functions
 // Replace GGA with the name of the sentence you are trying to parse
 // Measurements are returned in meters or feet
+// Longitude and latitude are returned in decimal degrees
 LocationUtility.parseGGA(NMEASentence, 'imp');
 ```
 #### Calculate horizontal accuracy
