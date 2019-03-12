@@ -48,21 +48,21 @@
   "homepage": "https://github.com/cambronjay/location-utilities#readme",
   "dependencies": {},
   "devDependencies": {
-    "@angular/core": "4.1.0",
     "@angular/compiler": "4.1.0",
     "@angular/compiler-cli": "4.1.0",
-    "zone.js": "0.8.4",
+    "@angular/core": "4.1.0",
     "@types/node": "7.0.18",
     "canonical-path": "0.0.2",
+    "copy-files": "0.1.0",
     "cpr": "2.0.2",
     "dgeni": "0.4.7",
-    "copy-files": "0.1.0",
     "dgeni-packages": "0.19.0",
     "rimraf": "2.6.1",
+    "rxjs": "5.1.1",
     "semver": "5.3.0",
     "tslint": "5.2.0",
     "typescript": "2.3.2",
-    "rxjs": "5.1.1"
+    "zone.js": "0.8.4"
   },
   "peerDependencies": {}
 }
