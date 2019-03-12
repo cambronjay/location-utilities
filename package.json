@@ -51,6 +51,7 @@
     "@angular/core": "4.1.0",
     "@angular/compiler": "4.1.0",
     "@angular/compiler-cli": "4.1.0",
+    "zone.js": "0.8.4",
     "@types/node": "7.0.18",
     "canonical-path": "0.0.2",
     "cpr": "2.0.2",
