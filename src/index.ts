@@ -506,13 +506,13 @@ export module LocationUtility {
         var long = parseFloat(longitude);
         var longDirection = longitudeDirection;
 
-        var degreesLatitude = Math.round(lat / 100.0);
+        var degreesLatitude = Math.floor(lat / 100.0);
         var minutesLatitude = lat - (degreesLatitude * 100.0);
         var decimalDegreesLatitude = degreesLatitude + (minutesLatitude / 60.0);
         if (latDirection == 'S') {
             decimalDegreesLatitude = decimalDegreesLatitude * -1;
         }
-        var degreesLongitude = Math.round(long / 100.0);
+        var degreesLongitude = Math.floor(long / 100.0);
         var minutesLongitude = long - (degreesLongitude * 100.0);
         var decimalDegreesLongitude = degreesLongitude + (minutesLongitude / 60.0);
         if (longDirection == 'W') {
@@ -530,7 +530,7 @@ export module LocationUtility {
         var lat = parseFloat(latitude);
         var latDirection = latitudeDirection;
 
-        var degreesLatitude = Math.round(lat / 100.0);
+        var degreesLatitude = Math.floor(lat / 100.0);
         var minutesLatitude = lat - (degreesLatitude * 100.0);
         var decimalDegreesLatitude = degreesLatitude + (minutesLatitude / 60.0);
         if (latDirection == 'S') {
@@ -544,7 +544,7 @@ export module LocationUtility {
         var long = parseFloat(longitude);
         var longDirection = longitudeDirection;
 
-        var degreesLongitude = Math.round(long / 100.0);
+        var degreesLongitude = Math.floor(long / 100.0);
         var minutesLongitude = long - (degreesLongitude * 100.0);
         var decimalDegreesLongitude = degreesLongitude + (minutesLongitude / 60.0);
         if (longDirection == 'W') {
